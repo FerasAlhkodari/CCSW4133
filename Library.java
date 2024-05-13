@@ -4,8 +4,9 @@ import java.util.List;
 public class Library {
     private Storage storage;
 
+        //*fix error here new Storage(); */
     public Library() {
-        this.storage = new Storage(); // Initializes the storage when a library object is created
+        this.storage = Storage.getInstance(); // Initializes the storage when a library object is created
     }
 
     // Adds a book to the storage
@@ -31,7 +32,7 @@ public class Library {
 
     // Retrieves all books from the storage
     public List<Book> getAllBooks() {
-        return storage.getAllBooks();
+        return storage.getAllBooks(); // Ensure Storage class has this method
     }
     public void modifyBook(String isbn, String newTitle, String newAuthor) {
         for (Book book : storage.getAllBooks()) {

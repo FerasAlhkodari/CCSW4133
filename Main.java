@@ -4,7 +4,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         // Initialize components
-        Storage storage = new Storage();
+        // *fix error new Storage*
+        Storage storage = Storage.getInstance();
         Library library = new Library();
         Display display = new Display();
         AccountManager accountManager = AccountManager.getInstance();
