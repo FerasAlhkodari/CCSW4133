@@ -13,3 +13,5 @@ Add Factory Design Pattern AT "Main.java"
     V1
 
 Fix common errors occuers from Singlton Design pattern (WRONG IMPLEMENTAION)
+V2
+applying and fix common errors at sengelton DB 
