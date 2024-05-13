@@ -13,7 +13,8 @@ public class Main {
         LoanManager loanManager = new LoanManager(); 
         NotificationManager notificationManager = new NotificationManager();  // Initialize NotificationManager
         ReviewManager reviewManager = new ReviewManager();  // Initialize ReviewManager
-
+        DisplayComponent basicDisplay = new BasicDisplay();
+        
         // Populate the library with initial books
         library.addBook(new Book("1984", "George Orwell", "9780451524935", 1949));
         library.addBook(new Book("To Kill a Mockingbird", "Harper Lee", "9780446310789", 1960));
@@ -25,7 +26,7 @@ public class Main {
         // User interface
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Book Management System!");
-
+        basicDisplay.display("Display Moment!");
         // Attempt login
         System.out.print("Username: ");
         String username = scanner.nextLine();
