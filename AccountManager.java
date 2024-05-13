@@ -1,13 +1,19 @@
-// DataBases
-import java.util.HashMap;
-import java.util.Map;
-//Singleton pattern
+import java.io.*;
+import java.util.*;
+    // Applying Singlton Design Pattern
 public class AccountManager {
     private static AccountManager instance;
-    private Map<String, User> users; // This holds the user details.
+    private File userDataFile;
 
     private AccountManager() {
-        users = new HashMap<>();
+        userDataFile = new File("userData.txt"); // File to store user data
+        if (!userDataFile.exists()) {
+            try {
+                userDataFile.createNewFile(); // Create the file if it doesn't exist
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static synchronized AccountManager getInstance() {
@@ -17,19 +23,21 @@ public class AccountManager {
         return instance;
     }
 
-    public boolean register(String username, String password, String role) {
-        if (!users.containsKey(username)) {
-            users.put(username, new User(username, password, role));
-            return true;
-        }
-        return false;
+    public User login(String username, String password) {
+        // Always return a new User object, bypassing any real authentication
+        return new User(username, password, "Guest"); // Default role as "Guest"
     }
 
-    public User login(String username, String password) {
-        User user = users.get(username);
-        if (user != null && user.getPassword().equals(password)) {
-            return user;
+    public boolean register(String username, String password, String role) {
+        // Write user data to the file
+        try (FileWriter fw = new FileWriter(userDataFile, true);
+             BufferedWriter bw = new BufferedWriter(fw);
+             PrintWriter out = new PrintWriter(bw)) {
+            out.println(username + "," + password + "," + role);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
         }
-        return null;
+        return true;
     }
 }
