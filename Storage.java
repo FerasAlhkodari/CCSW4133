@@ -1,7 +1,9 @@
+
 import java.util.ArrayList;
 import java.util.List;
-//Applying Singleton Pattern
-public class Storage {
+
+
+public class Storage implements StorageInterface {
     private static Storage instance;
     private List<Book> books;
 
@@ -16,14 +18,17 @@ public class Storage {
         return instance;
     }
 
+    @Override
     public void addBook(Book book) {
         books.add(book);
     }
 
+    @Override
     public void removeBook(String isbn) {
         books.removeIf(b -> b.getISBN().equals(isbn));
     }
 
+    @Override
     public List<Book> getAllBooks() {
         return new ArrayList<>(books);
     }

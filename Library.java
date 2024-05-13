@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
-    private Storage storage;
+    private StorageInterface storage;
 
         //*fix error here new Storage(); */
     public Library() {
-        this.storage = Storage.getInstance(); // Initializes the storage when a library object is created
+        this.storage = new StorageProxy(); // Initializes the storage when a library object is created
     }
 
     // Adds a book to the storage
