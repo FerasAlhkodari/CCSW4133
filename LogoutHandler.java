@@ -19,4 +19,5 @@ public class LogoutHandler implements Handler {
             System.out.println("No handler available for request type: " + request.getType());
         }
     }
+    
 }

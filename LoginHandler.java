@@ -19,21 +19,3 @@ public class LoginHandler implements Handler {
     }
 }
 
-public class LogoutHandler implements Handler {
-    private Handler next;
-
-    @Override
-    public void setNext(Handler handler) {
-        this.next = handler;
-    }
-
-    @Override
-    public void handleRequest(Request request) {
-        if (request.getType().equals("Logout")) {
-            System.out.println("Handling logout request");
-            // Process logout request
-        } else if (next != null) {
-            next.handleRequest(request);
-        }
-    }
-}
