@@ -7,7 +7,7 @@ public class LoggedOutState implements SessionState {
 
     @Override
     public void logout(SessionContext context) {
-        System.out.println("No action. User already logged out.");
+        System.out.println("User Logged out.");
     }
 
     @Override

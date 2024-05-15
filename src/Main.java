@@ -1,3 +1,5 @@
+
+
 import java.util.Map;
 import java.util.Scanner;
 
@@ -15,10 +17,7 @@ public class Main {
         ReviewManager reviewManager = new ReviewManager();  // Initialize ReviewManager
         DisplayComponent basicDisplay = new BasicDisplay();
         SessionContext session = new SessionContext();
-        session.login();   // Transitions to LoggedInState
-        session.login();   // No action, already logged in
-        session.expire();  // Expires the session, transitions to LoggedOutState
-        session.logout();  // No action, already logged out
+        
         
         // Populate the library with initial books
         library.addBook(new Book("1984", "George Orwell", "9780451524935", 1949));
@@ -31,7 +30,8 @@ public class Main {
         // User interface
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Book Management System!");
-        basicDisplay.display("Display Moment!");
+        session.login();
+        basicDisplay.display("Please enter Username");
         // Attempt login
         System.out.print("Username: ");
         String username = scanner.nextLine();

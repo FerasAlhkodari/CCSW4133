@@ -10,14 +10,14 @@ public class StorageProxy implements StorageInterface {
     @Override
     public void addBook(Book book) {
         // Log the action or perform other access control checks
-        System.out.println("Proxy: Adding a book with ISBN " + book.getISBN());
+       // System.out.println("Proxy: Adding a book with ISBN " + book.getISBN());
         storage.addBook(book);  // Delegate the call to the real Storage class
     }
 
     @Override
     public void removeBook(String isbn) {
         // Log the action or perform other access control checks
-        System.out.println("Proxy: Removing a book with ISBN " + isbn);
+        //System.out.println("Proxy: Removing a book with ISBN " + isbn);
         storage.removeBook(isbn);  // Delegate the call to the real Storage class
     }
 

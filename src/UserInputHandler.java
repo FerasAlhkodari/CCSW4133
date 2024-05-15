@@ -15,6 +15,7 @@ public class UserInputHandler {
 
     public void handleUserInput(Scanner scanner) {
         while (true) {
+            SessionContext session =  new SessionContext();
             display.printMenu();
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
@@ -43,7 +44,8 @@ public class UserInputHandler {
                     display.displayBooks(library.getAllBooks());
                     break;
                 case 5: // Exit
-                    return;  // Break out of the loop to end the method
+                    session.logout();  // No action, already logged out
+                return;  // Break out of the loop to end the method
                 default:
                     display.print("Invalid choice. Please try again.");
                     break;
